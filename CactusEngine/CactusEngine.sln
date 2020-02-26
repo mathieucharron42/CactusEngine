@@ -9,7 +9,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GameSample", "GameSample\Ga
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CactusEngine.Rendering", "CactusEngine.Rendering\CactusEngine.Rendering.csproj", "{F94D04A5-12A9-433A-BF32-FB5C4282C899}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CactusEngine.Core", "CactusEngine.Core\CactusEngine.Core.csproj", "{894253AA-B42B-4C44-917B-852F89879B04}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "CactusEngine.Core", "CactusEngine.Core\CactusEngine.Core.csproj", "{894253AA-B42B-4C44-917B-852F89879B04}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Sample", "Sample\Sample.csproj", "{FC889EA5-46F8-402A-AFC3-A5639DC81744}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{894253AA-B42B-4C44-917B-852F89879B04}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{894253AA-B42B-4C44-917B-852F89879B04}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{894253AA-B42B-4C44-917B-852F89879B04}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FC889EA5-46F8-402A-AFC3-A5639DC81744}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FC889EA5-46F8-402A-AFC3-A5639DC81744}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FC889EA5-46F8-402A-AFC3-A5639DC81744}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FC889EA5-46F8-402A-AFC3-A5639DC81744}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
