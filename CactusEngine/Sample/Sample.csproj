@@ -1,4 +1,4 @@
-<Project Sdk="Microsoft.NET.Sdk">
+﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
     <OutputType>Exe</OutputType>
@@ -6,8 +6,14 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <PackageReference Include="sfml_network" Version="2.5.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\CactusEngine.Core\CactusEngine.Core.csproj" />
+    <ProjectReference Include="..\CactusEngine.GameObject\CactusEngine.GameObject.csproj" />
     <ProjectReference Include="..\CactusEngine.Rendering\CactusEngine.Rendering.csproj" />
+    <ProjectReference Include="..\CactusEngine.Window\CactusEngine.Window.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,20 +1,12 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <OutputType>Library</OutputType>
     <TargetFramework>netcoreapp3.1</TargetFramework>
-    <ApplicationIcon />
-    <StartupObject />
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="SFML.Graphics" Version="2.5.0" />
-    <PackageReference Include="SFML.Window" Version="2.5.0" />
-  </ItemGroup>
-
-  <ItemGroup>
     <ProjectReference Include="..\CactusEngine.Core\CactusEngine.Core.csproj" />
-    <ProjectReference Include="..\CactusEngine.GameObject\CactusEngine.GameObject.csproj" />
+    <ProjectReference Include="..\CactusEngine.Rendering\CactusEngine.Rendering.csproj" />
     <ProjectReference Include="..\CactusEngine.SMFLUtilities\CactusEngine.SMFLUtilities.csproj" />
   </ItemGroup>
 

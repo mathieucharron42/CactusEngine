@@ -3,27 +3,20 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
+
 namespace CactusEngine.Core
 {
-    public class Engine
+	public class Engine
     {
 		public Engine()
 		{
 			_stopRequested = false;
-			_task = new List<ITask>();
-			_subSystems = new Dictionary<Type, ISubSystem>();
+			_subSystems = new Dictionary<Type, SubSystem>();
 			_clock = new Clock();
 		}
 
-		public void SetupTask<TaskType>()
-			where TaskType : ITask, new()
-		{
-			TaskType task = new TaskType();
-			_task.Add(task);
-		}
-
-		public ISubSystem StartSubSystem<T>(Action<T> preInitializationFunction = null)
-			where T : ISubSystem, new()
+		public T StartSubSystem<T>(Action<T> preInitializationFunction = null)
+			where T : SubSystem, new()
 		{
 			T subSystem = new T();
 			if (preInitializationFunction != null)
@@ -36,16 +29,16 @@ namespace CactusEngine.Core
 		}
 
 		public void StopSubSystem<T>(T subSystem)
-			where T : ISubSystem
+			where T : SubSystem
 		{
 			subSystem.Shutdown(this);
 			_subSystems.Remove(typeof(T));
 		}
 
-		public T GetSubSystem<T>()
-			where T : ISubSystem
+		public T Get<T>()
+			where T : SubSystem
 		{
-			ISubSystem subSystem;
+			SubSystem subSystem;
 			if (_subSystems.TryGetValue(typeof(T), out subSystem))
 			{
 				return (T)subSystem;
@@ -56,28 +49,31 @@ namespace CactusEngine.Core
 			}
 		}
 
-
 		public void Run()
 		{
-			_clock.Restart();
 			while (!_stopRequested)
 			{
 				Tick();
 			}
 		}
 
-		private bool _stopRequested;
-		private List<ITask> _task;
-		private Dictionary<Type, ISubSystem> _subSystems;
-		private Clock _clock;
+		public void Stop()
+		{
+			_stopRequested = true;
+		}
 
 		private void Tick()
 		{
 			Time elapsed = _clock.Restart();
-			foreach (ITask task in _task)
+			foreach (KeyValuePair<Type, SubSystem> subSystemEntry in _subSystems)
 			{
-				task.Execute(this, elapsed);
+				SubSystem subSystem = subSystemEntry.Value;
+				subSystem.Tick(this, elapsed);
 			}
 		}
+
+		private bool _stopRequested;
+		private Dictionary<Type, SubSystem> _subSystems;
+		private Clock _clock;
 	}
 }

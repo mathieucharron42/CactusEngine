@@ -1,0 +1,7 @@
+﻿[*.{cs,vb}]
+
+# IDE0032: Use auto property
+dotnet_style_prefer_auto_properties = false:silent
+
+# IDE0044: Add readonly modifier
+dotnet_style_readonly_field = false:silent
